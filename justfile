@@ -1,4 +1,5 @@
 CXX := "g++"
+CXXFLAGS := "-lSDL3"
 src_files := `find ./src -name "*.cpp"`
 
 clean:
@@ -11,4 +12,8 @@ _build_dir:
 
 [default]
 build: _build_dir
-	{{CXX}} {{src_files}} -o dist/main -std=c++20
+	{{CXX}} {{CXXFLAGS}} {{src_files}} -o dist/main -std=c++20
+
+
+run: build
+    ./dist/main
